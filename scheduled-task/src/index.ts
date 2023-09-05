@@ -1,14 +1,12 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import pingTask from './controllers/cron-ping';
-import deleteLog from './controllers/cron-delete';
-
-import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
 (async () => {
   pingTask();
-  deleteLog();
+  // deleteLog();
 })();
 
 app.listen(process.env.PORT, () => {
